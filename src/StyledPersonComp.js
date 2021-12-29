@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 
 
-const PersonComp = ({id, firstName, lastName, email, pic, company, skill, grades, className, arrLength}) => {
+const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, grades, className, arrLength}) => {
 
     const [buttonGroup, setButtonGroup] = useState(
         () => {
@@ -46,7 +46,7 @@ const PersonComp = ({id, firstName, lastName, email, pic, company, skill, grades
                 <Paragraph key={id}>
 
                     <br/>
-
+                    City: {city} <br/>
                     Email: {email} <br/>
                     Company: {company}<br/>
                     Skill: {skill} <br/>
