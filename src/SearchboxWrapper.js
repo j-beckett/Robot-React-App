@@ -14,7 +14,7 @@ const SearchboxWrapper = ({setVisibleStudents, arrayOfStudents, arrLength, visib
 
     if (nameTextboxData === "" && tagTextboxData === ""){
         console.log("i'm true");
-        //setVisibleStudents(Array(arrLength).fill(true));
+       // setVisibleStudents(Array(arrLength).fill(true));
     }
 
     let arr = new Array(arrLength).fill(false);
