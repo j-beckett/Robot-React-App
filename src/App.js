@@ -34,8 +34,8 @@ const App = ({className}) => {
   return (
       <div className={className}>
         <SearchboxWrapper arrayOfStudents={data} setVisibleStudents={setVisibleStudents} arrLength = {data.length} visibleStudents={visibleStudents}/>
-        {data.map( (student) => {
-          if (visibleStudents[student.id]) { //if the particular student is set to true in the state hook, render it ! Must work both with name and tag search
+        {data.map( (student, index) => {
+          if (visibleStudents[index]) { //if the particular student is set to true in the state hook, render it ! Must work both with name and tag search
           return (<StyledPersonComp key = {student.id} {...student} arrLength = {data.length}/>)
         }}
 
