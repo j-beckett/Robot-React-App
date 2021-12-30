@@ -29,11 +29,13 @@ const App = ({className}) => {
   },[]);
 
 
+
   //pass in the arrayOfStudents to Person Component.
   //Because of this, I can use Person Component object destructuring and make each of the key / value pairs readable without the . syntax
   return (
       <div className={className}>
-        <SearchboxWrapper arrayOfStudents={data} setVisibleStudents={setVisibleStudents} arrLength = {data.length} visibleStudents={visibleStudents}/>
+
+        <SearchboxWrapper arrayOfStudents={data} setVisibleStudents={setVisibleStudents} arrLength = {data.length} />
         {data.map( (student, index) => {
           if (visibleStudents[index]) { //if the particular student is set to true in the state hook, render it ! Must work both with name and tag search
           return (<StyledPersonComp key = {student.id} {...student} arrLength = {data.length}/>)

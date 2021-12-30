@@ -4,54 +4,49 @@ import SearchBoxStyles from "./SearchBoxStyles";
 
 //iterate through each of the students, and checks if the name is within the search paramaters. If it is, display that student.
 // if the search box is empty, show all students.
-const SearchByName = ({className, setVisibleStudents, arrayOfStudents,visibleStudents}) => {
-
-   // const [textboxData, setTextboxData] = useState("");  //default state for textbox is empty.
-
-    const [nameTextboxData, setNameTextboxData] = useState("");
-
-    let arr = new Array(25).fill(false);
-   // arr[25] = true;
-    //arr[2] = true;
-   arr[0] = true;
+const SearchByName = ({className, nameTextboxData, setNameTextboxData, arrayOfStudents, setVisibleStudents}) => {
 
 
+    console.log(nameTextboxData);
 
-
-    const handleOnChange = (e) => { //this is listening for any change in the text box
+    const handleOnChange = (e) => { //this is listening for any change in the text box. set the state of whatever is in text box
         let userInput= e.target.value;
-        console.log(e.target.value);
-        setNameTextboxData(userInput.toLowerCase())
-        //4console.log(nameTextboxData);
-        setVisibleStudents(arr);
+        setNameTextboxData(userInput.toLowerCase()); //lower case to ensure that the 'includes' works properly !
 
-
-
-
-        //setVisibleStudents = boxGroup;
-        // arrayOfStudents.forEach((student) => {
-        //
-        //    //console.log(student.firstName);
-        //     //console.log(student.lastName);
-        // });
     }
 
-    useEffect(()=> {
+    useEffect(()=> { //watches for changes in the check box. Done this way because state is 'async' and this ensures everything stays synced!
         console.log(nameTextboxData);
-        if (nameTextboxData == ''){
-            let arrz = new Array(25).fill(true);
-            setVisibleStudents(arrz);
+        if (nameTextboxData == '') {
+            console.log('in if');
+            setVisibleStudents(Array(arrayOfStudents.length).fill(true));
+            return;
         }
+        //since state must replace the entire array, build a new one and adjust if that particular student needs to be 'shown'
+        let studentGroup = new Array(arrayOfStudents.length).fill(true);
+        arrayOfStudents.forEach((student, index) => {
+            //console.log((student.firstName).toLowerCase());
+            //console.log('ingaberg orton'.includes('ro'));
+            if ((student.firstName.toLowerCase()).includes(nameTextboxData) || (student.lastName.toLowerCase()).includes(nameTextboxData)){
+                console.log(nameTextboxData);
+                //console.log(typeof student.firstName.toLowerCase().includes(nameTextboxData));
+                console.log((student.firstName).toLowerCase() + ' ' + (student.lastName).toLowerCase());
+                studentGroup[index] = true;
+            }
+            else
+                studentGroup[index] = false;
+            //console.log(student.firstName);
+
+        });
+        console.log(studentGroup);
+        setVisibleStudents(studentGroup);
+
 
     },[nameTextboxData]);
 
-  //  const element = document.getElementsByTagName("h2");
-
-   // console.log(element);
-
     return (
 
-        <input type = 'text' placeholder="Search by name" className={className} onChange={handleOnChange} value={nameTextboxData} />
+        <input type = 'text' placeholder="Search by name" value={nameTextboxData} className={className} onChange={handleOnChange}  />
     );
 }
 
