@@ -3,6 +3,7 @@ import StyledImage from "./StyledImage";
 import Paragraph from "./Paragraph";
 import StyledPersonHeading from "./StyledPersonHeading";
 import TestValueWrapper from "./TestValueWrapper";
+import StyledAddTagInputBox from "./StyledAddTagInputBox";
 import styled from 'styled-components';
 
 
@@ -16,7 +17,7 @@ const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, 
         }
     );
 
-    let findAvg = () => {                   //Calculates the grade average and returns the result to the specific line in the component
+    const findAvg = () => {                   //Calculates the grade average and returns the result to the specific line in the component
         let total = 0;
 
         grades.forEach(num => {
@@ -53,7 +54,10 @@ const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, 
                     Average: {findAvg()}%
                     <br/><br/>
                 </Paragraph>
+                <br/>
+
                 <TestValueWrapper isExpanded={buttonGroup[id]} grades={grades}/>
+                <StyledAddTagInputBox id={id}/>
             </div>
         </>
     );
