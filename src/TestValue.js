@@ -5,7 +5,7 @@ import Paragraph from "./Paragraph";
 const TestValue = ({index, grade}) => {
 
     return (
-        <Paragraph>Test {index}: {grade}  </Paragraph>
+        <p>Test {index}: {grade}  </p>
     );
 }
 

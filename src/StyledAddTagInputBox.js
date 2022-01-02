@@ -71,7 +71,7 @@ const AddTagInputBox = ({className}) => {
 
 const StyledDiv = styled.div `
   display: flex;
-  margin-left: 23%;
+  //margin-left: 23%;
   margin-top: 0%;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -80,7 +80,7 @@ const StyledDiv = styled.div `
 const StyledTag = styled.h3 `
   width: auto;
   padding: 3%;
-  margin-left: 2%;
+  //margin-left: 2%;
   margin-right: 2%;
   background-color: #b6b6b6;
   text-align: center;
@@ -90,7 +90,7 @@ const StyledTag = styled.h3 `
 const StyledAddTagInputBox = styled(AddTagInputBox)`
     border: none;
   outline: none;
-    margin-left: 25%;
+   // margin-left: 5%;
     height: 50px;
     font-size: 1.5em;
 `;

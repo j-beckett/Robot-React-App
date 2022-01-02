@@ -25,8 +25,8 @@ const SearchByName = ({className, nameTextboxData, setNameTextboxData, arrayOfSt
         //since state must replace the entire array, build a new one and adjust if that particular student needs to be 'shown'
         let studentGroup = new Array(arrayOfStudents.length).fill(true);
         arrayOfStudents.forEach((student, index) => {
-            //console.log((student.firstName).toLowerCase());
-            //console.log('ingaberg orton'.includes('ro'));
+
+            //lower the names to lowercase to ensure the check works properly
             if ((student.firstName.toLowerCase()).includes(nameTextboxData) || (student.lastName.toLowerCase()).includes(nameTextboxData)){
                 console.log(nameTextboxData);
                 //console.log(typeof student.firstName.toLowerCase().includes(nameTextboxData));
