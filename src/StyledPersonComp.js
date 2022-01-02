@@ -52,12 +52,12 @@ const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, 
                     Company: {company}<br/>
                     Skill: {skill} <br/>
                     Average: {findAvg()}%
-                    <br/><br/>
+                    <br/>
                 </Paragraph>
-                <br/>
+
 
                 <TestValueWrapper isExpanded={buttonGroup[id]} grades={grades}/>
-                <StyledAddTagInputBox id={id}/>
+                <StyledAddTagInputBox />
             </div>
         </>
     );
