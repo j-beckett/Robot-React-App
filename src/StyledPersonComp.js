@@ -34,9 +34,13 @@ const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, 
         let buttons = [...buttonGroup];
         buttons[buttonId] = !buttons[buttonId];
         setButtonGroup(buttons)
-        console.log(buttonId);
+     //   console.log(buttonId);
     }
 
+    const [tagList, setTagList] = useState([]);
+
+
+    //console.log(tagList);
     return(
         <>
             <div className={className}>
@@ -54,7 +58,11 @@ const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, 
                     Average: {findAvg()}%
                     <br/>
                     <TestValueWrapper isExpanded={buttonGroup[id]} grades={grades}/>
-                    <StyledAddTagInputBox />
+                    <TagContainer> {tagList.map((element, index) => (
+                        <StyledTag key={index}>{element} </StyledTag>
+                    ))}
+                    </TagContainer>
+                    <StyledAddTagInputBox tagList={tagList} setTagList={setTagList}/>
                 </Paragraph>
 
 
@@ -64,6 +72,24 @@ const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, 
     );
 
 } // end person Component
+
+const TagContainer = styled.div `
+  display: flex;
+  //margin-left: 23%;
+  margin-top: 0%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+`;
+
+const StyledTag = styled.h3 `
+  width: auto;
+  padding: 3%;
+  //margin-left: 2%;
+  margin-right: 2%;
+  background-color: #b6b6b6;
+  text-align: center;
+  border-radius: 8px;
+`;
 
 const StyledPersonComp = styled(PersonComp)`
 

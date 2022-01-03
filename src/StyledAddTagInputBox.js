@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-const AddTagInputBox = ({className}) => {
+
+
+//this comp does most of the actual 'work' behind adding a tag
+const AddTagInputBox = ({className, tagList, setTagList}) => {
     const [input, setInput] = useState("");
 
     //manages keystrokes for the controlled input components.
@@ -28,6 +31,13 @@ const AddTagInputBox = ({className}) => {
     }, []);
 
 
+    const AddElem = (newTag) => {
+        let newList = [...tagList];
+        newList.push(newTag);
+        setTagList(newList);
+
+    };
+
     //submits the tag entry from the last 'active' box.
     // This allows a user to begin typing in a different text box, then switch input boxes to current and only submit the active box.
     const onFormSubmit = e => {
@@ -42,26 +52,13 @@ const AddTagInputBox = ({className}) => {
 
 
     //state holding the list of SPAN elements, which is the user added TAG's.
-    const [tagList, setTagList] = useState([]);
 
-    const AddElem = (newTag) => {
-        let newList = [...tagList];
-        newList.push(newTag);
-        // if(newList.length > 4) {
-        //     console.log(newList);
-        //     newList.push(<br/>);
-        // }
-        setTagList(newList);
-
-    };
 
 
 
     return (
         <>
-            <StyledDiv> {tagList.map((element, index) => (
-                <StyledTag key={index}>{element} </StyledTag>
-            ))}</StyledDiv>
+
             <form onSubmit={onFormSubmit} >
                 <input type='text'   placeholder='Add a tag...' className={className} onChange={handleChange} value={input}></input>
             </form>
@@ -69,23 +66,9 @@ const AddTagInputBox = ({className}) => {
     );
 }
 
-const StyledDiv = styled.div `
-  display: flex;
-  //margin-left: 23%;
-  margin-top: 0%;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-`;
 
-const StyledTag = styled.h3 `
-  width: auto;
-  padding: 3%;
-  //margin-left: 2%;
-  margin-right: 2%;
-  background-color: #b6b6b6;
-  text-align: center;
-  border-radius: 8px;
-`;
+
+
 
 const StyledAddTagInputBox = styled(AddTagInputBox)`
     border: none;

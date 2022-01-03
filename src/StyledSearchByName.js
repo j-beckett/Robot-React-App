@@ -7,7 +7,7 @@ import SearchBoxStyles from "./SearchBoxStyles";
 const SearchByName = ({className, nameTextboxData, setNameTextboxData, arrayOfStudents, setVisibleStudents}) => {
 
 
-    console.log(nameTextboxData);
+   // console.log(nameTextboxData);
 
     const handleOnChange = (e) => { //this is listening for any change in the text box. set the state of whatever is in text box
         let userInput= e.target.value;
@@ -16,21 +16,21 @@ const SearchByName = ({className, nameTextboxData, setNameTextboxData, arrayOfSt
     }
 
     useEffect(()=> { //watches for changes in the check box. Done this way because state is 'async' and this ensures everything stays synced!
-        console.log(nameTextboxData);
-        if (nameTextboxData == '') {
-            console.log('in if');
-            setVisibleStudents(Array(arrayOfStudents.length).fill(true));
-            return;
-        }
+        //console.log(nameTextboxData);
+        // if (nameTextboxData == '') {
+        //     console.log('in if');
+        //     setVisibleStudents(Array(arrayOfStudents.length).fill(true));
+        //     return;
+        // }
         //since state must replace the entire array, build a new one and adjust if that particular student needs to be 'shown'
-        let studentGroup = new Array(arrayOfStudents.length).fill(true);
+        let studentGroup = [...arrayOfStudents];
         arrayOfStudents.forEach((student, index) => {
 
             //lower the names to lowercase to ensure the check works properly
             if ((student.firstName.toLowerCase()).includes(nameTextboxData) || (student.lastName.toLowerCase()).includes(nameTextboxData)){
                 console.log(nameTextboxData);
                 //console.log(typeof student.firstName.toLowerCase().includes(nameTextboxData));
-                console.log((student.firstName).toLowerCase() + ' ' + (student.lastName).toLowerCase());
+               // console.log((student.firstName).toLowerCase() + ' ' + (student.lastName).toLowerCase());
                 studentGroup[index] = true;
             }
             else
@@ -38,7 +38,7 @@ const SearchByName = ({className, nameTextboxData, setNameTextboxData, arrayOfSt
             //console.log(student.firstName);
 
         });
-        console.log(studentGroup);
+      //  console.log(studentGroup);
         setVisibleStudents(studentGroup);
 
 
