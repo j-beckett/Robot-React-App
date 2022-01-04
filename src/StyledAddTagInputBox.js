@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-
-
-//this comp does most of the actual 'work' behind adding a tag
-const AddTagInputBox = ({className, tagList, setTagList}) => {
+const AddTagInputBox = ({className, tagList, setTagList, id, fullList}) => {
     const [input, setInput] = useState("");
 
     //manages keystrokes for the controlled input components.
@@ -14,7 +11,7 @@ const AddTagInputBox = ({className, tagList, setTagList}) => {
 
     }
 
-
+    //console.log(tagList);
     //listening for enter keystrokes. Allows tags to be submitted without the use of a button.
     useEffect(() => {
         const listener = event => {
@@ -30,11 +27,22 @@ const AddTagInputBox = ({className, tagList, setTagList}) => {
         };
     }, []);
 
-
+    // let meow = [...tagList];
+    //
+    // meow[0].push('hi');
+    // meow[3].push('hmmmm');
+    // setTagList(meow);
     const AddElem = (newTag) => {
         let newList = [...tagList];
         newList.push(newTag);
-        setTagList(newList);
+
+        let meow = [...fullList];
+        meow[id-1] = newList;
+        // if(newList.length > 4) {
+        //     console.log(newList);
+        //     newList.push(<br/>);
+        // }
+        setTagList(meow);
 
     };
 

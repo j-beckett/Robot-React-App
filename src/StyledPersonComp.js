@@ -8,7 +8,9 @@ import styled from 'styled-components';
 
 
 
-const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, grades, className, arrLength}) => {
+const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, grades, className, arrLength, tagList, setTagList, fullList}) => {
+
+    console.log(tagList);
 
     const [buttonGroup, setButtonGroup] = useState(
         () => {
@@ -37,7 +39,7 @@ const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, 
      //   console.log(buttonId);
     }
 
-    const [tagList, setTagList] = useState([]);
+    //const [tagList, setTagList] = useState([]);
 
 
     //console.log(tagList);
@@ -62,7 +64,7 @@ const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, 
                         <StyledTag key={index}>{element} </StyledTag>
                     ))}
                     </TagContainer>
-                    <StyledAddTagInputBox tagList={tagList} setTagList={setTagList}/>
+                    <StyledAddTagInputBox tagList={tagList} setTagList={setTagList} id={id} fullList={fullList}/>
                 </Paragraph>
 
 
