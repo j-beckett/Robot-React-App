@@ -10,7 +10,7 @@ import styled from 'styled-components';
 
 const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, grades, className, arrLength, tagList, setTagList, fullList}) => {
 
-    console.log(tagList);
+    //console.log(tagList);
 
     const [buttonGroup, setButtonGroup] = useState(
         () => {

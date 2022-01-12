@@ -14,8 +14,7 @@ const App = ({className}) => {
 
   const [tagList, setTagList] = useState(
       () => {
-        let arr = Array(25)   ;  //I filled the useState function in this way to handle if suddenly there were more/less students in JSON file
-
+        let arr = Array(25)   ; //ugly; this needs to be in the IIFE. however I haven't figured out a way to init with the correct number of students inside the IIFE without breaking everything. 
         for (let i=0; i< arr.length; i++){
           arr[i] = new Array();
         }
