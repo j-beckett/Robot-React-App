@@ -41,8 +41,8 @@ console.log(tagList);
         //   arr[i] = new Array();
         // }
 
-        setTagList(arr);
-        console.log(arr);
+        // setTagList(arr);
+        // console.log(arr);
         // let meow = [...tagList];
         //
         // //meow[0].push('hi');
