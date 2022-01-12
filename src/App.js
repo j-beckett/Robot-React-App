@@ -12,9 +12,13 @@ const App = ({className}) => {
   const [visibleStudents, setVisibleStudents] = useState([]);
  // let testy;
 
+
+//i think instead of an array an arrays I should use an array of objects
+    //the object then can contain the string of the user entered tag PLUS the index of where the student is in the array of students
+    //push the search handler update to git then start to mess around with that :) 
   const [tagList, setTagList] = useState(
       () => {
-        let arr = Array(25)   ; //ugly; this needs to be in the IIFE. however I haven't figured out a way to init with the correct number of students inside the IIFE without breaking everything. 
+        let arr = Array(25)   ; //ugly; this needs to be in the IIFE. however I haven't figured out a way to init with the correct number of students inside the IIFE without breaking everything.
         for (let i=0; i< arr.length; i++){
           arr[i] = new Array();
         }
