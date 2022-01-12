@@ -23,7 +23,7 @@ const App = ({className}) => {
       }
   );
 
-
+console.log(tagList);
 
   //IIFE syntax to ensure it runs first
   useEffect( () => {
@@ -33,15 +33,22 @@ const App = ({className}) => {
         setData(data.students);
         console.log(data); //extract the data out of the API response
         //console.log(data.length); // not needed - for debugging
-        setVisibleStudents(new Array(25).fill(true)); //set the state hook for visible students - relates to the search boxes
+        setVisibleStudents(new Array(data.students.length).fill(true)); //set the state hook for visible students - relates to the search boxes
 
+        // let arr = Array(25);
+        //
+        // for (let i=0; i< arr.length; i++){
+        //   arr[i] = new Array();
+        // }
 
-        let meow = [...tagList];
-
-        //meow[0].push('hi');
-        //meow[3].push('hmmmm');
-        setTagList(meow);
-        console.log(tagList);
+        setTagList(arr);
+        console.log(arr);
+        // let meow = [...tagList];
+        //
+        // //meow[0].push('hi');
+        // //meow[3].push('hmmmm');
+        // setTagList(meow);
+        // console.log(tagList);
       } catch (error) {
         console.log('API Error: ' + error);
       }
