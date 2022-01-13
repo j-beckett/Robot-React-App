@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-const AddTagInputBox = ({className, tagList, setTagList, id, fullList}) => {
+const AddTagInputBox = ({className, tagList, setTagList, id, fullList, tagListy}) => {
     const [input, setInput] = useState("");
 
     //manages keystrokes for the controlled input components.
@@ -33,16 +33,17 @@ const AddTagInputBox = ({className, tagList, setTagList, id, fullList}) => {
     // meow[3].push('hmmmm');
     // setTagList(meow);
     const AddElem = (newTag) => {
+        tagListy.push(newTag);
         let newList = [...tagList];
-        newList.push(newTag);
+        newList.push(newTag); //this would be changed to be used with an obj
 
-        let meow = [...fullList];
-        meow[id-1] = newList;
+       // let meow = [...fullList];
+       // meow[id-1] = newList;
         // if(newList.length > 4) {
         //     console.log(newList);
         //     newList.push(<br/>);
         // }
-        setTagList(meow);
+        setTagList(newList);
 
     };
 

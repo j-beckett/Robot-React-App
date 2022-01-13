@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import StyledImage from "./StyledImage";
 import Paragraph from "./Paragraph";
 import StyledPersonHeading from "./StyledPersonHeading";
@@ -8,9 +8,12 @@ import styled from 'styled-components';
 
 
 
-const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, grades, className, arrLength, tagList, setTagList, fullList}) => {
+const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, grades, className, arrLength, tagList, setTagList, fullList, tagListy}) => {
 
-    //console.log(tagList);
+    useEffect(()=> {
+        console.log("useEffect");
+
+    },[tagList]);
 
     const [buttonGroup, setButtonGroup] = useState(
         () => {
@@ -60,11 +63,11 @@ const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, 
                     Average: {findAvg()}%
                     <br/>
                     <TestValueWrapper isExpanded={buttonGroup[id]} grades={grades}/>
-                    <TagContainer> {tagList.map((element, index) => (
+                    <TagContainer> {tagListy.map((element, index) => (
                         <StyledTag key={index}>{element} </StyledTag>
                     ))}
                     </TagContainer>
-                    <StyledAddTagInputBox tagList={tagList} setTagList={setTagList} id={id} fullList={fullList}/>
+                    <StyledAddTagInputBox tagList={tagList} setTagList={setTagList} id={id} fullList={fullList} tagListy={tagListy}/>
                 </Paragraph>
 
 

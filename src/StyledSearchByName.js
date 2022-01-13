@@ -8,7 +8,7 @@ import handleOnChanges from "./handleOnChanges";
 const SearchByName = ({className, nameTextboxData, setNameTextboxData, arrayOfStudents, setVisibleStudents}) => {
 
 
-   // console.log(nameTextboxData);
+    console.log(nameTextboxData);
 
     const handleOnChange = (e) => { //this is listening for any change in the text box. set the state of whatever is in text box
         Tester();
@@ -18,7 +18,7 @@ const SearchByName = ({className, nameTextboxData, setNameTextboxData, arrayOfSt
         handleOnChanges(e);
     }
 
-    useEffect(()=> { //watches for changes in the check box. Done this way because state is 'async' and this ensures everything stays synced!
+    useEffect(()=> { //watches for changes in the name box. Done this way because state is 'async' and this ensures everything stays synced!
         //console.log(nameTextboxData);
         // if (nameTextboxData == '') {
         //     console.log('in if');
@@ -28,7 +28,7 @@ const SearchByName = ({className, nameTextboxData, setNameTextboxData, arrayOfSt
         //since state must replace the entire array, build a new one and adjust if that particular student needs to be 'shown'
         let studentGroup = [...arrayOfStudents];
         arrayOfStudents.forEach((student, index) => {
-
+            console.log(student.tagListy);
             //lower the names to lowercase to ensure the check works properly
             if ((student.firstName.toLowerCase()).includes(nameTextboxData) || (student.lastName.toLowerCase()).includes(nameTextboxData)){
                 console.log(nameTextboxData);
