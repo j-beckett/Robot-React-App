@@ -16,7 +16,7 @@ const AddTagInputBox = ({className, setTagList, id, tagListy}) => {
     useEffect(() => {
         const listener = event => {
             if ((event.code === "Enter" || event.code === "NumpadEnter") ){
-                console.log("Enter key was pressed. Run your function.");
+                //console.log("Enter key was pressed. Run your function.");
                 onFormSubmit();
                 event.preventDefault();
             }
@@ -29,10 +29,10 @@ const AddTagInputBox = ({className, setTagList, id, tagListy}) => {
 
 
     const AddElem = (newTag) => {
-        tagListy.push(newTag);
+        tagListy.push(newTag); //this keeps track of each students tags that have been added by user
         let newList = [];
         newList.push(newTag);
-        setTagList(newList); //this state hook does NOT keep track of all the tags... just used to re-render the component after a new tag is added
+        setTagList(newList); //this state hook does NOT keep track of all the tags... just used to re-render the components after a new tag is added
 
     };
 

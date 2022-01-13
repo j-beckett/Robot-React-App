@@ -16,8 +16,8 @@ const SearchboxWrapper = ({setVisibleStudents, arrayOfStudents, arrLength, visib
 
     return (
         <>
-    <StyledSearchByName  nameTextboxData={nameTextboxData}  setNameTextboxData={setNameTextboxData} arrayOfStudents={arrayOfStudents} setVisibleStudents={setVisibleStudents} />
-    <StyledSearchByTag/>
+    <StyledSearchByName  nameTextboxData={nameTextboxData}  setNameTextboxData={setNameTextboxData} arrayOfStudents={arrayOfStudents} setVisibleStudents={setVisibleStudents} tagTextboxData={tagTextboxData}/>
+    <StyledSearchByTag tagTextboxData={tagTextboxData} setTagTextboxData={setTagTextboxData} arrayOfStudents={arrayOfStudents} setVisibleStudents={setVisibleStudents} nameTextboxData={nameTextboxData} />
         </>
     );
 }

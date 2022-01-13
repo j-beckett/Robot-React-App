@@ -7,7 +7,7 @@ const handleOnChanges = (e) => { //this is listening for any change in the text 
     console.log("hey, i'm in the main event");
     console.log(e.target.value);
 
-    console.log(document.querySelectorAll("h3"));
+    //console.log(document.querySelectorAll("h3"));
 }
 
 export default handleOnChanges;
