@@ -8,12 +8,8 @@ import styled from 'styled-components';
 
 
 
-const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, grades, className, arrLength, tagList, setTagList, fullList, tagListy}) => {
+const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, grades, className, arrLength,  setTagList, tagListy}) => {
 
-    useEffect(()=> {
-        console.log("useEffect");
-
-    },[tagList]);
 
     const [buttonGroup, setButtonGroup] = useState(
         () => {
@@ -67,7 +63,7 @@ const PersonComp = ({id, firstName, lastName, email, pic, company, city, skill, 
                         <StyledTag key={index}>{element} </StyledTag>
                     ))}
                     </TagContainer>
-                    <StyledAddTagInputBox tagList={tagList} setTagList={setTagList} id={id} fullList={fullList} tagListy={tagListy}/>
+                    <StyledAddTagInputBox setTagList={setTagList} id={id} tagListy={tagListy}/>
                 </Paragraph>
 
 

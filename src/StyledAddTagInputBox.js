@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-const AddTagInputBox = ({className, tagList, setTagList, id, fullList, tagListy}) => {
+const AddTagInputBox = ({className, setTagList, id, tagListy}) => {
     const [input, setInput] = useState("");
 
     //manages keystrokes for the controlled input components.
@@ -27,23 +27,12 @@ const AddTagInputBox = ({className, tagList, setTagList, id, fullList, tagListy}
         };
     }, []);
 
-    // let meow = [...tagList];
-    //
-    // meow[0].push('hi');
-    // meow[3].push('hmmmm');
-    // setTagList(meow);
+
     const AddElem = (newTag) => {
         tagListy.push(newTag);
-        let newList = [...tagList];
-        newList.push(newTag); //this would be changed to be used with an obj
-
-       // let meow = [...fullList];
-       // meow[id-1] = newList;
-        // if(newList.length > 4) {
-        //     console.log(newList);
-        //     newList.push(<br/>);
-        // }
-        setTagList(newList);
+        let newList = [];
+        newList.push(newTag);
+        setTagList(newList); //this state hook does NOT keep track of all the tags... just used to re-render the component after a new tag is added
 
     };
 
@@ -54,22 +43,19 @@ const AddTagInputBox = ({className, tagList, setTagList, id, fullList, tagListy}
         if (e.target[0].value === "")  //don't allow submission of blank tags
             return;
         console.log(e.target[0].value);
-        AddElem(e.target[0].value);  //adds the new tag to an array of SPAN's
+        AddElem(e.target[0].value);  //adds the new tag to an array
         setInput("");
         console.log(e.target[0].value);
     }
 
 
-    //state holding the list of SPAN elements, which is the user added TAG's.
 
-
-
-
+    //maxLength of 75 was just a random number... any bigger seems excessive
     return (
         <>
 
             <form onSubmit={onFormSubmit} >
-                <input type='text'   placeholder='Add a tag...' className={className} onChange={handleChange} value={input}></input>
+                <input type='text'   placeholder='Add a tag...' className={className} onChange={handleChange} value={input} maxLength="75"></input>
             </form>
         </>
     );
