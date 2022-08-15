@@ -4,7 +4,7 @@ import SearchBoxStyles from "./SearchBoxStyles";
 import StyledSearchByTag from "./StyledSearchByTag";
 import StyledSearchByName from "./StyledSearchByName";
 import Tester from "./Tester";
-
+import useStudentVisibility from "./useStudentVisibility";
 
 const SearchboxWrapper = ({setVisibleStudents, arrayOfStudents, arrLength, visibleStudents}) => {
 
@@ -14,10 +14,13 @@ const SearchboxWrapper = ({setVisibleStudents, arrayOfStudents, arrLength, visib
 
     const [nameTextboxData, setNameTextboxData] = useState("");
 
+    //custom hook so I can have the same functionaility in both 'search' boxes. This helps me adhere to the DRY principle
+    useStudentVisibility(arrayOfStudents, setVisibleStudents, nameTextboxData, tagTextboxData);
+
     return (
         <>
-    <StyledSearchByName  nameTextboxData={nameTextboxData}  setNameTextboxData={setNameTextboxData} arrayOfStudents={arrayOfStudents} setVisibleStudents={setVisibleStudents} tagTextboxData={tagTextboxData}/>
-    <StyledSearchByTag tagTextboxData={tagTextboxData} setTagTextboxData={setTagTextboxData} arrayOfStudents={arrayOfStudents} setVisibleStudents={setVisibleStudents} nameTextboxData={nameTextboxData} />
+    <StyledSearchByName  nameTextboxData={nameTextboxData}  setNameTextboxData={setNameTextboxData} />
+    <StyledSearchByTag tagTextboxData={tagTextboxData} setTagTextboxData={setTagTextboxData} />
         </>
     );
 }

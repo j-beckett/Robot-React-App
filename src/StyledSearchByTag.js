@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import StyledSearchByName from "./StyledSearchByName";
 import SearchBoxStyles from "./SearchBoxStyles";
 import handleOnChanges from "./handleOnChanges";
-import useStudentVisibility from "./useStudentVisibility";
-const SearchByTag = ({className , tagTextboxData, setTagTextboxData, arrayOfStudents, setVisibleStudents, nameTextboxData}) => {
+const SearchByTag = ({className , tagTextboxData, setTagTextboxData}) => {
 
 
     const handleOnChange = (e) => { //this is listening for any change in the text box. set the state of whatever is in text box
@@ -15,7 +14,6 @@ const SearchByTag = ({className , tagTextboxData, setTagTextboxData, arrayOfStud
         handleOnChanges(e);
     }
 
-    useStudentVisibility(arrayOfStudents, setVisibleStudents, nameTextboxData, tagTextboxData);
     return (
 
         <input type = 'text' placeholder="Search by TAG" value={tagTextboxData} className={className} onChange={handleOnChange}/>
