@@ -1,4 +1,4 @@
-import React , {useEffect} from "react";
+import React , {useState, useEffect} from "react";
 
 
 const useStudentVisibility = (arrayOfStudents, setVisibleStudents, nameTextboxData, tagTextboxData) => {
@@ -8,15 +8,11 @@ const useStudentVisibility = (arrayOfStudents, setVisibleStudents, nameTextboxDa
         //since state must replace the entire array, build a new one and adjust if that particular student needs to be 'shown'
         let studentGroup = [...arrayOfStudents];
 
-        let tagGroup;
-        let nameGroup;
-
         arrayOfStudents.forEach((student, index) => {
             //console.log(student.tagListy);
             //lower the names to lowercase to ensure the check works properly
 
-            //search only tags
-            if (nameTextboxData === "" && tagTextboxData !== "" ){
+            if (nameTextboxData === "" && tagTextboxData != "" ){
                 studentGroup[index] = false;
                 if (student.tagListy.length) {
                     console.log(student.tagListy.includes(tagTextboxData));
@@ -31,13 +27,11 @@ const useStudentVisibility = (arrayOfStudents, setVisibleStudents, nameTextboxDa
                 }
 
                 setVisibleStudents(studentGroup);
-
                 return;
             }
 
 
-            //search only names
-            else if ( tagTextboxData=== "" && nameTextboxData !== "" ){
+            else if ( tagTextboxData=== "" && nameTextboxData != "" ){
                 console.log('has name');
 
                 if ((student.firstName.toLowerCase()).includes(nameTextboxData) || (student.lastName.toLowerCase()).includes(nameTextboxData)){
@@ -50,11 +44,8 @@ const useStudentVisibility = (arrayOfStudents, setVisibleStudents, nameTextboxDa
                 else
                     studentGroup[index] = false;
                 //console.log(student.firstName);
-                return;
             }
-
-            //search both
-            else if ( tagTextboxData !== "" && nameTextboxData !== "" ){
+            else if ( tagTextboxData != "" && nameTextboxData != "" ){
 
                 console.log('has both');
             }
